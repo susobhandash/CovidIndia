@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {
   useEffect,
@@ -13,9 +13,9 @@ function App({ prop }) {
   //       .then(data => console.log(data));
   // }, [prop, state]);
 
-  let timestamp = Math.floor(Date.now() / 1000);
-
   useEffect(() => {
+    const timestamp = Math.floor(Date.now() / 1000);
+
     async function fetchDailyData() {
       const response = await fetch('https://www.mygov.in/sites/default/files/covid/vaccine/vaccine_counts_today.json?timestamp=' + timestamp);
       const fetchedDailyData = await response.json(response);

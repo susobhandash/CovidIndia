@@ -23,6 +23,7 @@ function App({ prop }) {
       console.log(fetchedDailyData);
     }
     fetchDailyData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

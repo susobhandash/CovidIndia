@@ -34,7 +34,7 @@ class CovidStats extends React.Component {
     setItems(result) {
         let states = result['Name of State / UT'];
         let stateData = [];
-        Object.keys(states).map((idx) => {
+        Object.keys(states).forEach((idx) => {
             let itemToPush = {
                 name: result['Name of State / UT'][idx],
                 abbr: result['abbreviation_code'][idx],

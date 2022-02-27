@@ -74,7 +74,7 @@ class CovidStats extends React.Component {
                 <div key={item.abbr} className='grid-row'>
                     <span className='state-name'>
                         <div>
-                            (<a href={item.covid_portal} target="_blank">{item.abbr}</a>) {item.name}
+                            (<a href={item.covid_portal} target="_blank" rel="noopener noreferrer">{item.abbr}</a>) {item.name}
                         </div>
                     </span>
                     <span>

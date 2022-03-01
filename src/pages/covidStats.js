@@ -1,5 +1,7 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleUp, faCircleDown } from '@fortawesome/free-regular-svg-icons'
 
 class CovidStats extends React.Component {
     constructor(props) {
@@ -80,26 +82,70 @@ class CovidStats extends React.Component {
                     </span>
                     <span className='confirmed'>
                         <span>
-                            <NumberFormat value={item.total} displayType={'text'} thousandSeparator={true} />
-                            <div className='pl-5 small-text'>(<span className='confirmed'>{item.diff_total}</span>)</div>
+                            <NumberFormat value={item.total} displayType={'text'} thousandSeparator={true} className='bold'/>
+                            <div className='pl-5 small-text'>
+                                <span className={item.diff_total > 0 ? 'death' : 'recovered'}>
+                                    {
+                                        item.diff_total > 0 ?
+                                            <FontAwesomeIcon icon={faCircleUp} size="md" className="death" /> :
+                                            <FontAwesomeIcon icon={faCircleDown} size="md" className="recovered" />
+                                    }
+                                    <span className='pl-5'>
+                                        {item.diff_total}
+                                    </span>
+                                </span>
+                            </div>
                         </span>
                     </span>
                     <span className='active'>
                         <span>
-                            <NumberFormat value={item.active} displayType={'text'} thousandSeparator={true} />
-                            <div className='pl-5 small-text'>(<span>{item.diff_active}</span>)</div>
+                            <NumberFormat value={item.active} displayType={'text'} thousandSeparator={true} className='bold' />
+                            <div className='pl-5 small-text'>
+                                <span className={item.diff_active > 0 ? 'recovered' : 'death'}>
+                                    {
+                                        item.diff_active > 0 ?
+                                            <FontAwesomeIcon icon={faCircleUp} size="md" className="recovered" /> :
+                                            <FontAwesomeIcon icon={faCircleDown} size="md" className="death" />
+                                    }
+                                    <span className='pl-5'>
+                                        {item.diff_active}
+                                    </span>
+                                </span>
+                            </div>
                         </span>
                     </span>
                     <span className='recovered'>
                         <span>
-                            <NumberFormat value={item.recovered} displayType={'text'} thousandSeparator={true} />
-                            <div className='pl-5 small-text'>(<span>{item.diff_recovered}</span>)</div>
+                            <NumberFormat value={item.recovered} displayType={'text'} thousandSeparator={true} className='bold' />
+                            <div className='pl-5 small-text'>
+                                <span className={item.diff_recovered > 0 ? 'recovered' : 'death'}>
+                                    {
+                                        item.diff_recovered > 0 ?
+                                            <FontAwesomeIcon icon={faCircleUp} size="md" className="recovered" /> :
+                                            <FontAwesomeIcon icon={faCircleDown} size="md" className="death" />
+                                    }
+                                    <span className='pl-5'>
+                                        {item.diff_recovered}
+                                    </span>
+                                </span>
+                            </div>
                         </span>
                     </span>
                     <span className='death'>
                         <span>
-                            <NumberFormat value={item.death} displayType={'text'} thousandSeparator={true} />
-                            <div className='pl-5 small-text'>(<span>{item.diff_death}</span>)</div>
+                            <NumberFormat value={item.death} displayType={'text'} thousandSeparator={true} className='bold' />
+                            <div className='pl-5 small-text'>
+                                <span className={item.diff_death > 0 ? 'death' : 'recovered'}>
+                                    {
+                                        item.diff_death > 0 ?
+                                            <FontAwesomeIcon icon={faCircleUp} size="md" className="death" /> :
+                                            <FontAwesomeIcon icon={faCircleDown} size="md" className="recovered" />
+                                    }
+                                    <span className='pl-5'>
+                                        {item.diff_death}
+                                    </span>
+                                </span>
+                            </div>
                         </span>
                     </span>
                 </div>

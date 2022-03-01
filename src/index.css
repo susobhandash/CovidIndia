@@ -118,3 +118,6 @@ nav ul li a {
 .pl-5 {
   padding-left: 0.5rem;
 }
+.bold {
+  font-weight: 600;
+}

@@ -16,8 +16,9 @@ class CovidStats extends React.Component {
 
     fetchRemoteItems() {
         const timestamp = Math.floor(Date.now() / 1000);
+        let host = window.location.host;
 
-        fetch("http://localhost:3000/sites/default/files/covid/covid_state_counts_ver1.json?timestamp=" + timestamp)
+        fetch("http://" + host + "/sites/default/files/covid/covid_state_counts_ver1.json?timestamp=" + timestamp)
             .then(res => res.json())
             .then(
                 (result) => {

@@ -15,7 +15,7 @@ class CovidStats extends React.Component {
     fetchRemoteItems() {
         const timestamp = Math.floor(Date.now() / 1000);
 
-        fetch("http://localhost:5000/sites/default/files/covid/covid_state_counts_ver1.json?timestamp=" + timestamp)
+        fetch("http://localhost:3000/sites/default/files/covid/covid_state_counts_ver1.json?timestamp=" + timestamp)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -75,30 +75,31 @@ class CovidStats extends React.Component {
                     <span className='state-name'>
                         <div>
                             (<a href={item.covid_portal} target="_blank" rel="noopener noreferrer">{item.abbr}</a>) {item.name}
+                            <div className='small-text'>{item.helpline}</div>
                         </div>
                     </span>
-                    <span>
+                    <span className='confirmed'>
                         <span>
                             <NumberFormat value={item.total} displayType={'text'} thousandSeparator={true} />
-                            (<span>{item.diff_total}</span>)
+                            <div className='pl-5 small-text'>(<span className='confirmed'>{item.diff_total}</span>)</div>
                         </span>
                     </span>
-                    <span>
+                    <span className='active'>
                         <span>
                             <NumberFormat value={item.active} displayType={'text'} thousandSeparator={true} />
-                            (<span>{item.diff_active}</span>)
+                            <div className='pl-5 small-text'>(<span>{item.diff_active}</span>)</div>
                         </span>
                     </span>
-                    <span>
+                    <span className='recovered'>
                         <span>
                             <NumberFormat value={item.recovered} displayType={'text'} thousandSeparator={true} />
-                            (<span>{item.diff_recovered}</span>)
+                            <div className='pl-5 small-text'>(<span>{item.diff_recovered}</span>)</div>
                         </span>
                     </span>
-                    <span>
+                    <span className='death'>
                         <span>
                             <NumberFormat value={item.death} displayType={'text'} thousandSeparator={true} />
-                            (<span>{item.diff_death}</span>)
+                            <div className='pl-5 small-text'>(<span>{item.diff_death}</span>)</div>
                         </span>
                     </span>
                 </div>
@@ -110,10 +111,10 @@ class CovidStats extends React.Component {
                 <div className='grid grid-header'>
                     <div className='grid-row'>
                         <span className='state-name'>State</span>
-                        <span>Total</span>
-                        <span>Active</span>
-                        <span>Recovered</span>
-                        <span>Deceased</span>
+                        <span className='confirmed'>Total</span>
+                        <span className='active'>Active</span>
+                        <span className='recovered'>Recovered</span>
+                        <span className='death'>Deceased</span>
                     </div>
                 </div>
                 <div className='grid'>

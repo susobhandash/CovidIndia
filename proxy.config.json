@@ -1,0 +1,6 @@
+{
+    "/sites/*": {
+        "target": "https://www.mygov.in/",
+        "secure": false
+    }
+}

@@ -43,7 +43,7 @@ class VaccineCount extends React.Component {
     fetchRemoteItems() {
         const timestamp = Math.floor(Date.now() / 1000);
 
-        fetch("http://localhost:5000/sites/default/files/covid/vaccine/vaccine_counts_today.json?timestamp=" + timestamp)
+        fetch("http://localhost:3000/sites/default/files/covid/vaccine/vaccine_counts_today.json?timestamp=" + timestamp)
             .then(res => res.json())
             .then(
                 (result) => {

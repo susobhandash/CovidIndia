@@ -5,11 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+:root {
+  --blue: #3A81F1;
+  --green: #2DA94F;
+  --yellow: #FDBD00;
+  --red: #EA4335;
+  --gray: #5F6368;
 }
 
 .topBar {
@@ -86,4 +95,26 @@ nav ul li a {
   z-index: 1;
   bottom: 0;
   font-weight: 500;
+}
+
+.confirmed {
+  color: var(--gray);
+}
+.active {
+  color: var(--blue);
+}
+.recovered {
+  color: var(--green);
+}
+.death {
+  color: var(--red);
+}
+
+.small-text {
+  font-size: 0.7rem;
+}
+
+/* Utilities */
+.pl-5 {
+  padding-left: 0.5rem;
 }
